@@ -1,3 +1,9 @@
+<script lang="ts" setup>
+
+const animations = defineModel('animations')
+
+</script>
+
 <template>
 <div class="navbar bg-transparent">
   <div class="navbar-start">
@@ -14,10 +20,10 @@
         <li><router-link to="/test">test</router-link></li>
       </ul>
     </div>
-    <router-link to="/" class="btn btn-ghost text-xl">0x22B59C</router-link>
-    <div class="text-sm breadcrumbs">
+    <div class="text-sm breadcrumbs px-2">
       <ul>
-        <li><a>> {{$route.path}}</a></li> 
+        <li><router-link to="/">bed</router-link></li> 
+        <li><a>{{$route.path}}</a></li> 
       </ul>
     </div>
   </div>
@@ -42,8 +48,8 @@
       <button class="btn btn-ghost">contact me</button>
     </router-link> -->
     <label class="cursor-pointer label">
-      <span class="label-text px-2 text-xs">anim.</span>
-      <input type="checkbox" class="toggle toggle-primary" checked>
+      <span class="label-text px-2 text-xs">animations</span>
+      <input type="checkbox" class="toggle toggle-secondary" v-model="animations">
     </label>
   </div>
 </div>
