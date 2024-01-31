@@ -1,6 +1,6 @@
 <template>
-  <article class="prose prose-zinc">
-    <div class="collapse collapse-arrow bg-base-100 my-3">
+  <article class="prose prose-zinc flex-col space-y-3">
+    <div class="collapse collapse-arrow bg-base-100">
       <input type="radio" name="my-accordion-2" /> 
       <div class="collapse-title font-medium px-8 pb-3">
         <h1 class="text-primary text-xl my-0">why did u make this?</h1>
@@ -9,7 +9,7 @@
         <p>first of all, how did u find this?</p>
       </div>
     </div>
-    <div class="collapse collapse-arrow bg-base-100 my-3">
+    <div class="collapse collapse-arrow bg-base-100">
       <input type="radio" name="my-accordion-2" /> 
       <div class="collapse-title font-medium px-8 pb-3">
         <h1 class="text-primary text-xl my-0">software proficiencies?</h1>
@@ -39,7 +39,7 @@
         </ul>
       </div>
     </div>
-    <div class="collapse collapse-arrow bg-base-100 my-3">
+    <div class="collapse collapse-arrow bg-base-100">
       <input type="radio" name="my-accordion-2" /> 
       <div class="collapse-title font-medium px-8 pb-3">
         <h1 class="text-primary text-xl my-0">bla bla bla?</h1>

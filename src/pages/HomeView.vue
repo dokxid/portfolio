@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 
+import MockWindow from '../components/MockWindow.vue';
 import FAQComponent from '../components/FAQComponent.vue';
 
 const animations = defineModel('animations')
@@ -46,23 +47,25 @@ const animations = defineModel('animations')
 
     <!-- content -->
     <div class="flex flex-col">
-      <div class="bg-primary px-6 pb-3 pt-14">
-        <article class="prose prose-zinc bg-base-100 p-8 rounded-3xl max-w-lg">
-          <h1 class="text-primary">about me</h1>
-          <ul>
-            <li>i make <strong>music</strong> based around breaks and vocaloid</li>
-            <li>i am also a <strong>visual artist</strong> that focuses on audio visuals and live coding</li>
-          </ul>
-          <p class="">i also do other stuff and go by the aliases 'addi_x0_x0_0' and '0x22B59C.zxx'</p>
-        </article>
-        <div class="my-7 max-w-lg">
-          <FAQComponent></FAQComponent>
+      <div class="bg-primary px-6 py-14">
+        <div class="flex justify-center">
+          <div class="flex flex-col max-w-screen-lg space-y-6 md:space-y-0 md:space-x-6 md:flex-row">
+            <article class="prose prose-zinc bg-base-100 p-8 rounded-3xl size-fit">
+              <h1 class="text-primary">about me</h1>
+              <ul>
+                <li>i make <strong>music</strong> based around breaks and vocaloid</li>
+                <li>i am also a <strong>visual artist</strong> that focuses on audio visuals and live coding</li>
+              </ul>
+              <p class="">i also do other stuff and go by the aliases 'addi_x0_x0_0' and '0x22B59C.zxx'</p>
+            </article>
+            <div class="grow">
+              <FAQComponent></FAQComponent>
+            </div>
+          </div>
         </div>
       </div>
       <div class="px-6 py-14">
-        <div class="mockup-window border border-base-300 max-w-md bg-base-100">
-          <div class="flex justify-center px-4 py-16 border-t border-base-300"><pre><code>i like creating stuff,,,</code></pre></div>
-        </div>
+        <MockWindow></MockWindow>
       </div>
     </div>
 
