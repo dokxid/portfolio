@@ -19,7 +19,7 @@ const animations = defineModel('animations')
       <div class="max-w-xl">
         <article class="prose prose-slate my-6">
           <div class="flex flex-col">
-            <h1 class="lead my-0"><em class="text-sm font-light">my</em> visual stuff</h1>
+            <h1 class="lead my-0"><em class="text-sm font-light">my</em> socials</h1>
           </div>
         </article>
         <div class="p-2">

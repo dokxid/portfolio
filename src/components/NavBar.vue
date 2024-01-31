@@ -14,9 +14,8 @@ const animations = defineModel('animations')
       <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
         <li><router-link to="/">home</router-link></li>
         <li><router-link to="/audio">audio</router-link></li>
-        <li><router-link to="/video">video</router-link></li>
-        <li><router-link to="/video">socials</router-link></li>
-        <li><router-link to="/video">about</router-link></li>
+        <li><router-link to="/video">visuals</router-link></li>
+        <li><router-link to="/socials">socials</router-link></li>
         <li><router-link to="/test">test</router-link></li>
       </ul>
     </div>
@@ -29,18 +28,11 @@ const animations = defineModel('animations')
   </div>
   <div class="navbar-center hidden lg:flex">
     <ul class="menu menu-horizontal px-1">
-      <li><router-link to="/home">home</router-link></li>
-      <li>
-        <details>
-          <summary>portfolios</summary>
-          <ul class="p-2">
-            <li><router-link to="/audio">audio</router-link></li>
-            <li><router-link to="/video">video</router-link></li>
-          </ul>
-        </details>
-      </li>
+      <li><router-link to="/">home</router-link></li>
+      <li><router-link to="/audio">audio</router-link></li>
+      <li><router-link to="/video">visuals</router-link></li>
       <li><router-link to="/socials">socials</router-link></li>
-      <li><router-link to="/about">about</router-link></li>
+      <li><router-link to="/test">test</router-link></li>
     </ul>
   </div>
   <div class="navbar-end">
@@ -48,7 +40,7 @@ const animations = defineModel('animations')
       <button class="btn btn-ghost">contact me</button>
     </router-link> -->
     <label class="cursor-pointer label">
-      <span class="label-text px-2 text-xs">animations</span>
+      <span class="label-text px-2 text-xs">heavy animations</span>
       <input type="checkbox" class="toggle toggle-secondary" v-model="animations">
     </label>
   </div>
