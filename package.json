@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vue-tsc && vite build",
     "preview": "vite preview",
-    "deploy": "npm run build && firebase deploy"
+    "deploy": "vue-tsc && vite build && firebase deploy"
   },
   "dependencies": {
     "firebase-tools": "^13.1.0",
