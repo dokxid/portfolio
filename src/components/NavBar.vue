@@ -40,7 +40,7 @@ const animations = defineModel('animations')
       <button class="btn btn-ghost">contact me</button>
     </router-link> -->
     <label class="cursor-pointer label">
-      <span class="label-text px-2 text-xs">heavy animations</span>
+      <span class="label-text px-2 text-xs">reduce motion</span>
       <input type="checkbox" class="toggle toggle-secondary" v-model="animations">
     </label>
   </div>
