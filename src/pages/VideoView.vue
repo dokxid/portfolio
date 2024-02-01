@@ -10,13 +10,13 @@ const animations = defineModel('animations')
 
   <!-- hero content -->
   <div class="hero min-h-screen overflow-x-hidden">
-    <div v-if="animations" class="relative flex items-center justify-center overflow-x-hidden h-screen">
+    <div v-show="animations" class="relative flex items-center justify-center overflow-x-hidden h-screen">
     <video autoplay loop muted class="min-w-full min-h-full max-w-none">
       <source src="../assets/logo_untie_animation.webm" type="video/webm">
     </video>
     </div>
-    <div class="hero-content text-center w-full hover:backdrop-blur-sm min-h-screen">
-      <div class="max-w-xl">
+    <div class="hero-content text-center w-full min-h-screen">
+      <div class="max-w-xl bg-neutral p-5 rounded-3xl">
         <article class="prose prose-slate my-6">
           <div class="flex flex-col">
             <h1 class="lead my-0"><em class="text-sm font-light">my</em> visual stuff</h1>

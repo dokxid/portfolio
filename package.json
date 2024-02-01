@@ -7,15 +7,23 @@
     "dev": "vite",
     "build": "vue-tsc && vite build",
     "preview": "vite preview",
-    "deploy": "vue-tsc && vite build && firebase deploy"
+    "deploy": "firebase deploy",
+    "build-and-deploy": "vite build && firebase deploy",
+    "watch": "npx tailwindcss -i ./src/input.css -o ./src/output.css --watch"
   },
   "dependencies": {
+    "feather-icons": "^4.29.1",
     "firebase-tools": "^13.1.0",
     "flowbite": "^2.2.1",
     "flowbite-vue": "^0.1.2",
     "pinia": "^2.1.7",
+    "theme-change": "^2.5.0",
+    "three": "0.134",
+    "troisjs": "^0.3.4",
     "vue": "^3.2.47",
     "vue-animate-onscroll": "^1.0.8",
+    "vue-feather": "^2.0.0",
+    "vue-meta": "^2.4.0",
     "vue-navigation-bar": "^6.1.0",
     "vue-router": "^4.2.5",
     "vue-sequential-entrance": "^1.1.3"

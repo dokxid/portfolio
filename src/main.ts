@@ -1,5 +1,6 @@
 import { createApp } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
+import { themeChange } from 'theme-change'
 // import { createPinia } from 'pinia'
 
 import App from './App.vue'
@@ -12,6 +13,8 @@ import SocialView from './pages/SocialView.vue'
 import './output.css'
 
 // const pinia = createPinia()
+themeChange(true)
+
 const router = createRouter({
     history: createWebHistory(),
     routes: [

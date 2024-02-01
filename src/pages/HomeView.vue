@@ -14,13 +14,18 @@ const animations = defineModel('animations')
   <div class="flex flex-col w-full">
 
     <!-- hero content -->
-    <HomeHeroComponent v-model:animations="animations"></HomeHeroComponent>
+    <HomeHeroComponent v-model:animations="animations" class="overflow-x-hidden"></HomeHeroComponent>
 
     <!-- content -->
     <div class="flex flex-col">
+      <div class="px-6 py-14 bg-secondary">
+        <div class="flex justify-center">
+          <MockWindow v-model:animations="animations" class="max-w-screen-xl"></MockWindow>
+        </div>
+      </div>
       <div class="bg-primary px-6 py-14">
         <div class="flex justify-center">
-          <div class="flex flex-col max-w-screen-lg space-y-6 md:space-y-0 md:space-x-6 md:flex-row">
+          <div class="flex flex-col max-w-screen-xl space-y-6 md:space-y-0 md:space-x-6 md:flex-row">
             <article class="prose prose-zinc bg-base-100 p-8 rounded-3xl size-fit">
               <h1 class="text-primary">about me</h1>
               <ul>
@@ -34,9 +39,6 @@ const animations = defineModel('animations')
             </div>
           </div>
         </div>
-      </div>
-      <div class="px-6 py-14">
-        <MockWindow></MockWindow>
       </div>
     </div>
 

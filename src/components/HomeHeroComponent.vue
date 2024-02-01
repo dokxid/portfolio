@@ -6,16 +6,9 @@ const animations = defineModel('animations')
 
 <template>
   
-  <div class="hero overflow-x-hidden min-h-screen">
+  <div class="hero min-h-screen">
     
-    <!-- background animation -->
-    <div v-if="animations" class="absolute p-0 justify-end overflow-x-hidden h-screen">
-      <video autoplay loop muted class="min-w-full min-h-full max-w-none">
-        <source src="../assets/logo_untie_animation.webm" type="video/webm">
-      </video>
-    </div>
-    
-    <div class="hero-content p-10 text-left w-full hover:backdrop-blur-sm min-h-screen flex flex-col">
+    <div class="hero-content p-10 text-left w-full min-h-screen flex flex-col">
 
       <!-- hero content -->
       <div class="absolute max-w-sm">
