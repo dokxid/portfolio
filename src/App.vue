@@ -1,11 +1,14 @@
 <script lang="ts" setup>
 
-  import { ref } from 'vue';
   import NavBar from './components/NavBar.vue'
   import './output.css'
 
-  const settings = ref({
-    animations: true
+  const settings = defineProps({
+    animations: {
+      type: Boolean,
+      default: true,
+    },
+    showNavBar: Boolean,
   })
 
 </script>
@@ -14,7 +17,7 @@
   <div class="bg-base-100">
 
     <!-- navbar -->
-    <NavBar v-model:animations="settings.animations" class="absolute top-0 left-0 z-50 w-full"></NavBar>
+    <NavBar v-model:animations="settings.animations" class="fixed top-0 left-0 z-50 w-full"></NavBar>
 
     <!-- router-view -->
     <div class="flex flex-col h-screen">

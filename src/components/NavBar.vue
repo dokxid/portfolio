@@ -1,12 +1,14 @@
 <script lang="ts" setup>
 import NavBarButton from "./NavBarButton.vue";
+import NavBarHorizontalEntryC from './NavBarHorizontalEntryC.vue'
+import NavBarVerticalEntryC from './NavBarVerticalEntryC.vue'
 
 const animations = defineModel("animations");
 </script>
 
 <template>
-  <div class="flex justify-center">
-    <div class="max-w-screen-xl grow">
+  <div v-bind:class="{ 'text-slate-50 to-slate-50': $route.path == '/test' }" class="flex justify-center">
+    <div class="max-w-screen-2xl grow">
       <div class="navbar bg-transparent h-20 md:h-32 px-4 sm:px-10 md:px-20">
         <div class="navbar-start">
           <div class="dropdown">
@@ -28,13 +30,13 @@ const animations = defineModel("animations");
             </div>
             <ul
               tabindex="0"
-              class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box"
             >
-              <li><router-link to="/">home</router-link></li>
-              <li><router-link to="/audio">audio</router-link></li>
-              <li><router-link to="/video">visuals</router-link></li>
-              <li><router-link to="/socials">socials</router-link></li>
-              <li><router-link to="/test">test</router-link></li>
+              <NavBarVerticalEntryC name="home" route="/" />
+              <NavBarVerticalEntryC name="audio" route="/audio" />
+              <NavBarVerticalEntryC name="visuals" route="/video" />
+              <NavBarVerticalEntryC name="socials" route="/socials" />
+              <NavBarVerticalEntryC name="test" route="/test" />
             </ul>
           </div>
           <div class="text-sm breadcrumbs px-6 font-bold">
@@ -47,22 +49,12 @@ const animations = defineModel("animations");
           </div>
         </div>
         <div class="navbar-center hidden lg:flex">
-          <ul class="menu menu-horizontal px-1 font-semibold">
-            <li v-bind:class="{ underline: $route.path == '/' }">
-              <router-link to="/">home</router-link>
-            </li>
-            <li v-bind:class="{ underline: $route.path == '/audio' }">
-              <router-link to="/audio">audio</router-link>
-            </li>
-            <li v-bind:class="{ underline: $route.path == '/video' }">
-              <router-link to="/video">visuals</router-link>
-            </li>
-            <li v-bind:class="{ underline: $route.path == '/socials' }">
-              <router-link to="/socials">socials</router-link>
-            </li>
-            <li v-bind:class="{ underline: $route.path == '/test' }">
-              <router-link to="/test">test</router-link>
-            </li>
+          <ul class="inline-flex gap-4 px-1 font-semibold">
+            <NavBarHorizontalEntryC name="home" route="/" />
+            <NavBarHorizontalEntryC name="audio" route="/audio" />
+            <NavBarHorizontalEntryC name="visuals" route="/video" />
+            <NavBarHorizontalEntryC name="socials" route="/socials" />
+            <NavBarHorizontalEntryC name="test" route="/test" />
           </ul>
         </div>
         <div class="navbar-end">

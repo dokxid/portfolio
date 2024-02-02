@@ -1,29 +1,43 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+
+import { withAnimations } from 'animated-tailwindcss'
+
+export default withAnimations({
   content: ["./src/**/*.{html,js,vue}"],
   darkMode: 'class',
   theme: {
     extend: {
-      "animation": {
-        "rotational-wave": "rotational-wave 0.5s ease-in-out infinite"
+
+      animation: {
+        "rotationalwave": "rotational_wave 10s ease-in-out infinite",
+        "x_scale": "x_scale 0.3s ease-out",
       },
-      "rotational-wave": {
-        "0%": {
-          "transform": "rotate(0deg)"
+
+      keyframes: {
+        rotational_wave: {
+          "0%, 100%": {
+            "transform": "rotate(0deg)"
+          },
+          "25%, 75%": {
+            "transform": "rotate(20deg)"
+          },
+          "50%": {
+            "transform": "rotate(-20deg)"
+          },
         },
-        "25%": {
-          "transform": "rotate(20deg)"
+        x_scale: {
+          "0%": {
+            "width": "80%"
+          },
+          "100%": {
+            "width": "100%"
+          },
         },
-        "50%": {
-          "transform": "rotate(-20deg)"
-        },
-        "75%": {
-          "transform": "rotate(20deg)"
-        },
-        "100%": {
-          "transform": "rotate(0deg)"
-        }
       }
+
+      
+      
+      
     },
   },
   plugins: [
@@ -63,4 +77,5 @@ module.exports = {
       },
     ],
   }
-}
+})
+

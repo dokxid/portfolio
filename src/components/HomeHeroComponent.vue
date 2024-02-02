@@ -36,7 +36,7 @@ const animations = defineModel('animations')
       <!-- scroll animation -->
       <div class="grow"></div>
       <div class="flex justify-center">
-        <div v-bind:class="{'animate-bounce': animations}" class="bg-slate-600 p-2 w-10 h-10 btn-circle">
+        <div v-bind:class="{'animate-bounce animate-repeat-[2] animate-duration-[2s] animate-ease-linear': animations}" class="bg-slate-600 p-2 w-10 h-10 btn-circle">
           <svg class="w-6 h-6 text-base-100" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" viewBox="0 0 24 24" stroke="currentColor" style="--darkreader-inline-stroke: currentColor;" data-darkreader-inline-stroke="">
             <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
           </svg>

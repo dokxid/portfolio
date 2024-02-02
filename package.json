@@ -4,14 +4,14 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "watch": "npx tailwindcss -i ./src/input.css -o ./src/output.css --watch",
     "dev": "vite",
+    "dev_host": "vite --host",
     "build": "vue-tsc && vite build",
-    "preview": "vite preview",
-    "deploy": "firebase deploy",
-    "build-and-deploy": "vite build && firebase deploy",
-    "watch": "npx tailwindcss -i ./src/input.css -o ./src/output.css --watch"
+    "preview": "vite preview"
   },
   "dependencies": {
+    "animated-tailwindcss": "^4.0.0",
     "feather-icons": "^4.29.1",
     "firebase": "^10.7.2",
     "firebase-tools": "^13.1.0",

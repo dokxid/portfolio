@@ -3,7 +3,7 @@
     <div class="collapse collapse-arrow bg-base-100">
       <input type="radio" name="my-accordion-2" /> 
       <div class="collapse-title font-medium px-8 pb-3">
-        <h1 class="text-primary text-xl my-0">why did u make this?</h1>
+        <h1 class="text-ctp-lavender text-xl my-0">why did u make this?</h1>
       </div>
       <div class="collapse-content px-8"> 
         <p>first of all, how did u find this?</p>
@@ -12,7 +12,7 @@
     <div class="collapse collapse-arrow bg-base-100">
       <input type="radio" name="my-accordion-2" /> 
       <div class="collapse-title font-medium px-8 pb-3">
-        <h1 class="text-primary text-xl my-0">software proficiencies?</h1>
+        <h1 class="text-ctp-lavender text-xl my-0">software proficiencies?</h1>
       </div>
       <div class="collapse-content px-8"> 
         <p class="text-xs"><em>note: this is listed for the case if u wanna collabarate, i don't intend this to be a standard tech curriculum vitae</em></p>
@@ -42,7 +42,7 @@
     <div class="collapse collapse-arrow bg-base-100">
       <input type="radio" name="my-accordion-2" /> 
       <div class="collapse-title font-medium px-8 pb-3">
-        <h1 class="text-primary text-xl my-0">bla bla bla?</h1>
+        <h1 class="text-ctp-lavender text-xl my-0">bla bla bla?</h1>
       </div>
       <div class="collapse-content px-8"> 
         <p>blub blub blub</p>
