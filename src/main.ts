@@ -1,6 +1,8 @@
 import { createApp } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
 import { themeChange } from 'theme-change'
+import { VueFire, VueFireAuth } from 'vuefire'
+import { firebaseApp } from './firebase'
 // import { createPinia } from 'pinia'
 
 import App from './App.vue'
@@ -30,5 +32,13 @@ const app = createApp(App)
 
 app.use(router)
 // app.use(pinia)
+
+app.use(VueFire, {
+    firebaseApp,
+    modules: [
+      // we will see other modules later on
+      VueFireAuth(),
+    ],
+})
 
 app.mount('#app')

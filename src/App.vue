@@ -11,7 +11,7 @@
 </script>
 
 <template>
-  <div class="bg-transparent">
+  <div class="bg-base-100">
 
     <!-- navbar -->
     <NavBar v-model:animations="settings.animations" class="absolute top-0 left-0 z-50 w-full"></NavBar>
