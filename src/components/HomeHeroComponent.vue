@@ -18,12 +18,14 @@ function toggleFailedToLoadCables() {
   <div class="hero min-h-screen">
     <!-- <iframe :class="{'invert': !lightTheme}" class="w-screen h-screen" src="cables/index.html"></iframe> -->
 
-    <div v-show="failedToLoadCables" class="toast toast-bottom toast-end m-3 z-50 ">
-      <div role="alert" class="alert alert-error">
-        <span>unable to load cables canvas</span>
+    <Transition name="toast">
+      <div v-show="failedToLoadCables" class="toast toast-bottom toast-end m-3 z-50">
+        <div role="alert" class="alert alert-error">
+          <span>unable to load cables canvas</span>
+        </div>
       </div>
-    </div>
-    <CablesEmbedC patchName="connected-particles" :lightTheme="lightTheme" canvasId="othercanvas" :patchOptions="{ 
+    </Transition>
+    <CablesEmbedC patchName="connected-particles" :class="{'invert': !lightTheme}" canvasId="othercanvas" :patchOptions="{ 
       glCanvasResizeToParent: true,
       onFinishedLoading: toggleFailedToLoadCables
     }"/>
@@ -36,18 +38,34 @@ function toggleFailedToLoadCables() {
           <p class="my-0 font-light text-base-content">welcome to my —</p>
           <h1 class="lead my-0 text-7xl font-extrabold text-base-content">portfolio</h1>
         </div>
-        <article class="prose prose-slate my-10 lg:prose-lg xl:prose-xl max-w-xs text-justify">
-          <p class="indent-10">i create <strong class="text-secondary text-3xl font-extrabold bg-gradient-to-bl from-base-100 to-base-200 px-2">music</strong> and <strong class="text-secondary text-3xl font-extrabold bg-gradient-to-bl from-base-100 to-base-200 px-2">art && visuals</strong>;
+        <article class="prose prose-slate my-10 lg:prose-lg xl:prose-xl max-w-xs text-justify px-2">
+          <p class="indent-10">i create <strong class="text-pink text-3xl font-extrabold bg-gradient-to-bl from-base-100 to-base-200 drop-shadow-md">music</strong> and <strong class="text-pink text-3xl font-extrabold bg-gradient-to-bl from-base-100 to-base-200 box-decoration-clone drop-shadow-md">art && visuals</strong>;
           but i seek <strong class="uppercase font-mono">$more_ways</strong> to express my {msgs};<br></p>
-          <p class="indent-10 text-sm">you probably got >/here because i sent u the link, so feel free to browse around,,,</p>
+          <p class="text-sm indent-10">you probably got >/here because i sent u the link, so feel free to browse around,,,</p>
           <p class="text-sm indent-10"><em><strong>note:</strong> everything here is still wip,,, </em><em><strong>note:</strong> everything here is still wip,,, </em><em><strong>note:</strong> everything here is still wip,,, </em><em><strong>note:</strong> everything here is still wip,,, </em></p>
         </article>
-        <div class="space-x-2">
+        <div class="flex gap-4 flex-row-reverse">
           <router-link to="/audio">
-            <button class="btn btn-secondary hover:btn-ghost">audio works</button>
+            <button class="group inline-flex bg-pink outline-2 p-4 text-base rounded-full font-bold items-center hover:bg-transparent hover:outline hover:text-base-content drop-shadow-md">
+              audio works
+              <img
+                class="group-hover:invert-0 invert size-4"
+                viewBox="0 0 24 24"
+                src="/icons/chevron-right.svg"
+                alt="chevron-right"
+              />
+            </button>
           </router-link>
           <router-link to="/video">
-            <button class="btn btn-secondary hover:btn-ghost">visual works</button>
+            <button class="group inline-flex bg-pink outline-2 p-4 text-base rounded-full font-bold items-center hover:bg-transparent hover:outline hover:text-base-content drop-shadow-md">
+              visual works
+              <img
+                class="group-hover:invert-0 invert size-4"
+                viewBox="0 0 24 24"
+                src="/icons/chevron-right.svg"
+                alt="chevron-right"
+              />
+            </button>
           </router-link>
         </div>
       </div>
@@ -69,12 +87,25 @@ function toggleFailedToLoadCables() {
     
     
     
-  </template>
+</template>
 
 <style scoped>
+
 canvas {
   display: block;
   position: absolute;
   outline:0;
 }
+
+.toast-enter-active,
+.toast-leave-active {
+  transition: all 0.2s ease-in-out;
+}
+
+.toast-enter-from,
+.toast-leave-to {
+  transform: translateY(-200%);
+  opacity: 0;
+}
+
 </style>

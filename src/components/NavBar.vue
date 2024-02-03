@@ -114,7 +114,7 @@ const atTop = defineModel("atTop");
   </Transition>
 </template>
 
-<style>
+<style scoped>
 .fade-enter-active,
 .fade-leave-active {
   transition: all 0.2s ease-in-out;
