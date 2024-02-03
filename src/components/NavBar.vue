@@ -5,6 +5,7 @@ import NavBarVerticalEntryC from "./NavBarVerticalEntryC.vue";
 
 const animations = defineModel("animations");
 const showNavBar = defineModel("showNavBar");
+const atTop = defineModel("atTop");
 </script>
 
 <template>
@@ -13,7 +14,7 @@ const showNavBar = defineModel("showNavBar");
       v-show="showNavBar"
       v-bind:class="{ 'text-gray-200 to-slate-50': $route.path == '/test' }"
       class="flex justify-center"
-      :class="{ 'bg-base-100': showNavBar && $route.path != '/test' }"
+      :class="{ 'bg-base-100': showNavBar && !atTop && $route.path != '/test' }"
     >
       <div class="max-w-screen-2xl grow">
         <div class="navbar bg-transparent h-20 md:h-32 px-4 sm:px-10 md:px-20">
@@ -96,8 +97,9 @@ const showNavBar = defineModel("showNavBar");
                   <input
                     type="checkbox"
                     class="toggle toggle-secondary"
-                    data-toggle-theme="dark,light"
+                    data-toggle-theme="mocha,latte"
                     data-act-class="ACTIVECLASS"
+                    @click="$emit('toggleTheme')"
                   />
                 </label>
               </div>

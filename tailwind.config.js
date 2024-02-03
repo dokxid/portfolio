@@ -44,15 +44,14 @@ export default withAnimations({
     require("daisyui"),
     require("@catppuccin/tailwindcss")({
       defaultFlavour: "latte",
-      prefix: "ctp",
     }),
     require('@tailwindcss/typography'),
   ],
   daisyui: {
-    darkTheme: "dark",
+    darkTheme: "mocha",
     themes: [
       {
-        "light": {
+        "latte": {
           primary: "#1e66f5", // blue
           secondary: "#ea76cb", // pink
           accent: "#179299", // teal
@@ -63,7 +62,7 @@ export default withAnimations({
           warning: "#df8e1d", // yellow
           error: "#d20f39", // red
         },
-        "dark": {
+        "mocha": {
           primary: "#89b4fa", // blue
           secondary: "#f5c2e7", // pink
           accent: "#94e2d5", // teal

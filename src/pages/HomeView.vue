@@ -8,6 +8,7 @@ import DiscographySocialC from "../components/DiscographySocialC.vue";
 import HomeSpacerC from '../components/HomeSpacerC.vue.vue'
 
 const animations = defineModel("animations");
+const lightTheme = defineModel("lightTheme");
 </script>
 
 <template>
@@ -16,12 +17,13 @@ const animations = defineModel("animations");
     <!-- hero content -->
     <HomeHeroComponent
       v-model:animations="animations"
+      v-model:lightTheme="lightTheme"
       class="overflow-x-hidden"
     ></HomeHeroComponent>
 
     <!-- content -->
     <div class="flex flex-col">
-      <div class="px-6 py-14 md:py-40 bg-ctp-pink">
+      <div class="px-6 py-14 md:py-40 bg-pink">
         <div class="flex justify-center">
           <MockWindow
             v-model:animations="animations"
@@ -32,7 +34,7 @@ const animations = defineModel("animations");
 
       <HomeSpacerC />
 
-      <div class="bg-ctp-lavender px-6 py-14 md:py-40">
+      <div class="bg-lavender px-6 py-14 md:py-40">
         <div class="flex justify-center">
           <div
             class="flex flex-col max-w-screen-xl space-y-6 md:space-y-0 md:space-x-6 md:flex-row"
@@ -40,7 +42,7 @@ const animations = defineModel("animations");
             <article
               class="prose prose-zinc bg-base-100 p-8 rounded-3xl size-fit"
             >
-              <h1 class="text-ctp-lavender">about me</h1>
+              <h1 class="text-lavender">about me</h1>
               <ul>
                 <li>
                   i make <strong>music</strong> based around breaks and vocaloid
@@ -64,7 +66,7 @@ const animations = defineModel("animations");
 
       <HomeSpacerC />
 
-      <div class="bg-ctp-teal px-6 py-14 md:py-40">
+      <div class="bg-teal px-6 py-14 md:py-40">
         <div class="flex justify-center">
           <div
             class="flex flex-1 flex-wrap gap-6 justify-center max-w-screen-xl"

@@ -1,27 +1,28 @@
 <script lang="ts" setup>
 
 const animations = defineModel('animations')
+const lightTheme = defineModel('lightTheme')
 
 </script>
 
 <template>
   
   <div class="hero min-h-screen">
+    <iframe :class="{'invert': !lightTheme}" class="w-screen h-screen" src="cables/index.html"></iframe>
     
     <div class="hero-content p-10 text-left w-full min-h-screen flex flex-col">
 
       <!-- hero content -->
-      <div class="absolute max-w-sm">
-        <div class="flex flex-col">
-          <p class="my-0 font-light">welcome to my —</p>
-          <h1 class="lead my-0 text-7xl font-extrabold">portfolio</h1>
+      <div class="absolute">
+        <div class="flex flex-col text-base">
+          <p class="my-0 font-light text-base-content">welcome to my —</p>
+          <h1 class="lead my-0 text-7xl font-extrabold text-base-content">portfolio</h1>
         </div>
-        <article class="prose prose-slate my-10 lg:prose-lg xl:prose-xl">
-          <p class="">
-            i create <strong class="text-secondary">music</strong> and <strong class="text-secondary">art / visuals</strong>;<br>
-            but i seek <strong>more ways</strong> to express my {msgs};<br></p>
-            <p>you probably got >/here because i sent u the link, so feel free to browse around,,,</p>
-            <p class="text-sm"><em><strong>note:</strong> everything here i still wip,,,</em></p>
+        <article class="prose prose-slate my-10 lg:prose-lg xl:prose-xl max-w-xs text-justify">
+          <p class="indent-10">i create <strong class="text-secondary text-3xl font-extrabold bg-gradient-to-bl from-base-100 to-base-200 px-2">music</strong> and <strong class="text-secondary text-3xl font-extrabold bg-gradient-to-bl from-base-100 to-base-200 px-2">art && visuals</strong>;
+          but i seek <strong class="uppercase font-mono">$more_ways</strong> to express my {msgs};<br></p>
+          <p class="indent-10 text-sm">you probably got >/here because i sent u the link, so feel free to browse around,,,</p>
+          <p class="text-sm indent-10"><em><strong>note:</strong> everything here is still wip,,, </em><em><strong>note:</strong> everything here is still wip,,, </em><em><strong>note:</strong> everything here is still wip,,, </em><em><strong>note:</strong> everything here is still wip,,, </em></p>
         </article>
         <div class="space-x-2">
           <router-link to="/audio">
