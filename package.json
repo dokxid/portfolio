@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "watch": "npx tailwindcss -i ./src/input.css -o ./src/output.css --watch",
-    "cables": "cables --export dPfHb3 -d public/cables",
+    "cables": "cables --export dPfHb3 -d ./public/cables -c -i -b",
     "dev": "vite",
     "dev_host": "vite --host",
     "build": "vue-tsc && vite build",

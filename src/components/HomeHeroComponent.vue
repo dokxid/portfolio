@@ -1,14 +1,32 @@
 <script lang="ts" setup>
 
+import { ref } from 'vue';
+import CablesEmbedC from './CablesEmbedC.vue';
+
 const animations = defineModel('animations')
 const lightTheme = defineModel('lightTheme')
+const failedToLoadCables = ref(true)
+
+function toggleFailedToLoadCables() {
+  failedToLoadCables.value = !failedToLoadCables
+}
 
 </script>
 
 <template>
   
   <div class="hero min-h-screen">
-    <iframe :class="{'invert': !lightTheme}" class="w-screen h-screen" src="cables/index.html"></iframe>
+    <!-- <iframe :class="{'invert': !lightTheme}" class="w-screen h-screen" src="cables/index.html"></iframe> -->
+
+    <div v-show="failedToLoadCables" class="toast toast-bottom toast-end m-3 z-50 ">
+      <div role="alert" class="alert alert-error">
+        <span>unable to load cables canvas</span>
+      </div>
+    </div>
+    <CablesEmbedC patchName="connected-particles" :lightTheme="lightTheme" canvasId="othercanvas" :patchOptions="{ 
+      glCanvasResizeToParent: true,
+      onFinishedLoading: toggleFailedToLoadCables
+    }"/>
     
     <div class="hero-content p-10 text-left w-full min-h-screen flex flex-col">
 
@@ -52,3 +70,11 @@ const lightTheme = defineModel('lightTheme')
     
     
   </template>
+
+<style scoped>
+canvas {
+  display: block;
+  position: absolute;
+  outline:0;
+}
+</style>
