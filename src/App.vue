@@ -25,7 +25,10 @@ function handleScroll() {
   startY = scrollY;
 }
 
-onMounted(() => window.addEventListener("scroll", handleScroll));
+onMounted(
+  () => window.addEventListener("scroll", handleScroll),
+);
+localStorage.setItem('theme', 'latte')
 
 onUnmounted(() => window.removeEventListener("scroll", handleScroll));
 </script>
