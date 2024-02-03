@@ -12,11 +12,11 @@ const animations = defineModel('animations')
 
       <!-- hero content -->
       <div class="absolute max-w-sm">
-        <article class="prose prose-slate my-10">
-          <div class="flex flex-col">
-            <p class="my-0">welcome to my —</p>
-            <h1 class="lead my-0">portfolio</h1>
-          </div>
+        <div class="flex flex-col">
+          <p class="my-0 font-light">welcome to my —</p>
+          <h1 class="lead my-0 text-7xl font-extrabold">portfolio</h1>
+        </div>
+        <article class="prose prose-slate my-10 lg:prose-lg xl:prose-xl">
           <p class="">
             i create <strong class="text-secondary">music</strong> and <strong class="text-secondary">art / visuals</strong>;<br>
             but i seek <strong>more ways</strong> to express my {msgs};<br></p>
