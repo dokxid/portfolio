@@ -4,20 +4,36 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "watch": "npx tailwindcss -i ./src/input.css -o ./src/output.css --watch",
+    "cables-connected-particles": "cables --export dPfHb3 -d ./public/cables/connected-particles -c -i -b",
+    "cables-rocks": "cables --export X0jRg3 -d ./public/cables/rocks -c -i -b",
     "dev": "vite",
+    "dev_host": "vite --host",
     "build": "vue-tsc && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
+    "animated-tailwindcss": "^4.0.0",
+    "feather-icons": "^4.29.1",
+    "firebase": "^10.7.2",
+    "firebase-tools": "^13.1.0",
     "flowbite": "^2.2.1",
     "flowbite-vue": "^0.1.2",
+    "pinia": "^2.1.7",
+    "theme-change": "^2.5.0",
+    "three": "0.134",
+    "troisjs": "^0.3.4",
     "vue": "^3.2.47",
     "vue-animate-onscroll": "^1.0.8",
+    "vue-feather": "^2.0.0",
+    "vue-meta": "^2.4.0",
     "vue-navigation-bar": "^6.1.0",
     "vue-router": "^4.2.5",
-    "vue-sequential-entrance": "^1.1.3"
+    "vue-sequential-entrance": "^1.1.3",
+    "vuefire": "^3.1.22"
   },
   "devDependencies": {
+    "@catppuccin/tailwindcss": "^0.1.6",
     "@tailwindcss/typography": "^0.5.10",
     "@vitejs/plugin-vue": "^4.1.0",
     "daisyui": "^4.6.0",
