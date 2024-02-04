@@ -16,7 +16,8 @@ function toggleFailedToLoadCables() {
 <template>
   
   <div class="hero min-h-screen">
-    <!-- <iframe :class="{'invert': !lightTheme}" class="w-screen h-screen" src="cables/index.html"></iframe> -->
+
+    <!-- <iframe :class="{'invert': !lightTheme}" class="w-screen h-screen" src="https://cables.gl/view/65bed2afcbaf213b544549c7"></iframe> -->
 
     <Transition name="toast">
       <div v-show="failedToLoadCables" class="toast toast-bottom toast-end m-3 z-50">
@@ -25,7 +26,7 @@ function toggleFailedToLoadCables() {
         </div>
       </div>
     </Transition>
-    <CablesEmbedC patchName="connected-particles" :class="{'invert': !lightTheme}" canvasId="othercanvas" :patchOptions="{ 
+    <CablesEmbedC patchName="rocks/" :class="{'invert': !lightTheme}" canvasId="othercanvas" :patchOptions="{ 
       glCanvasResizeToParent: true,
       onFinishedLoading: toggleFailedToLoadCables
     }"/>
