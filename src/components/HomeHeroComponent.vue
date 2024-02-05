@@ -18,15 +18,23 @@ function toggleFailedToLoadCables() {
   <div class="hero min-h-screen">
 
     <!-- <iframe :class="{'invert': !lightTheme}" class="w-screen h-screen" src="https://cables.gl/view/65bed2afcbaf213b544549c7"></iframe> -->
+    
+    <!-- <iframe :class="{'invert': !lightTheme}" class="w-screen h-screen" src="https://cables.gl/view/65c034f2cbaf213b5445a85b"></iframe> -->
+
 
     <Transition name="toast">
-      <div v-show="failedToLoadCables" class="toast toast-bottom toast-end m-3 z-50">
-        <div role="alert" class="alert alert-error">
+      <div class="toast toast-bottom toast-end m-3 z-50">
+        <div v-show="failedToLoadCables" role="alert" class="alert alert-error">
           <span>unable to load cables canvas</span>
         </div>
       </div>
     </Transition>
-    <CablesEmbedC patchName="rocks/" :class="{'invert': !lightTheme}" canvasId="othercanvas" :patchOptions="{ 
+    <CablesEmbedC
+    patchName="rocks/"
+    canvasId="othercanvas"
+    class=""
+    :class="{'invert': !lightTheme}"
+    :patchOptions="{
       glCanvasResizeToParent: true,
       onFinishedLoading: toggleFailedToLoadCables
     }"/>
@@ -106,6 +114,16 @@ canvas {
 .toast-enter-from,
 .toast-leave-to {
   transform: translateY(-200%);
+  opacity: 0;
+}
+
+.toast-enter-active,
+.toast-leave-active {
+  transition: all 2s ease-in;
+}
+
+.toast-enter-from,
+.toast-leave-to {
   opacity: 0;
 }
 

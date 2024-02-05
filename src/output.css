@@ -3472,6 +3472,11 @@ details.collapse summary::-webkit-details-marker {
   background-color: transparent;
 }
 
+.bg-base {
+  --tw-bg-opacity: 1;
+  background-color: rgba(var(--ctp-base), var(--tw-bg-opacity));
+}
+
 .bg-gradient-to-bl {
   background-image: linear-gradient(to bottom left, var(--tw-gradient-stops));
 }
