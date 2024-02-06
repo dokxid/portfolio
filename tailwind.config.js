@@ -1,57 +1,54 @@
 /** @type {import('tailwindcss').Config} */
 
-import { withAnimations } from 'animated-tailwindcss'
+import { withAnimations } from "animated-tailwindcss";
 
 export default withAnimations({
   content: ["./src/**/*.{html,js,vue}"],
-  darkMode: 'class',
+  darkMode: "class",
   theme: {
     extend: {
-
+      // animations
       animation: {
-        "rotationalwave": "rotational_wave 10s ease-in-out infinite",
-        "x_scale": "x_scale 0.3s ease-out",
+        rotationalwave: "rotational_wave 10s ease-in-out infinite",
+        x_scale: "x_scale 0.3s ease-out",
       },
 
+      // animation keyframes
       keyframes: {
         rotational_wave: {
           "0%, 100%": {
-            "transform": "rotate(0deg)"
+            transform: "rotate(0deg)",
           },
           "25%, 75%": {
-            "transform": "rotate(20deg)"
+            transform: "rotate(20deg)",
           },
           "50%": {
-            "transform": "rotate(-20deg)"
+            transform: "rotate(-20deg)",
           },
         },
         x_scale: {
           "0%": {
-            "width": "80%"
+            width: "80%",
           },
           "100%": {
-            "width": "100%"
+            width: "100%",
           },
         },
-      }
-
-      
-      
-      
+      },
     },
   },
   plugins: [
     require("daisyui"),
+    require("@tailwindcss/typography"),
     require("@catppuccin/tailwindcss")({
       defaultFlavour: "latte",
     }),
-    require('@tailwindcss/typography'),
   ],
   daisyui: {
     darkTheme: "mocha",
     themes: [
       {
-        "latte": {
+        latte: {
           primary: "#1e66f5", // blue
           secondary: "#ea76cb", // pink
           accent: "#179299", // teal
@@ -62,7 +59,7 @@ export default withAnimations({
           warning: "#df8e1d", // yellow
           error: "#d20f39", // red
         },
-        "mocha": {
+        mocha: {
           primary: "#89b4fa", // blue
           secondary: "#f5c2e7", // pink
           accent: "#94e2d5", // teal
@@ -75,6 +72,5 @@ export default withAnimations({
         },
       },
     ],
-  }
-})
-
+  },
+});
