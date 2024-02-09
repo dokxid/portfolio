@@ -7,7 +7,7 @@
     "watch": "npx tailwindcss -i ./src/input.css -o ./src/output.css --watch",
     "cables-connected-particles": "cables --export dPfHb3 -d ./public/cables/connected-particles -c -i -b",
     "cables-rocks": "cables --export jGPZm3 -d ./public/cables/rocks -c -i -b",
-    "dev": "vite",
+    "dev": "vite & npm run watch",
     "dev_host": "vite --host",
     "build": "vue-tsc && vite build",
     "preview": "vite preview"
