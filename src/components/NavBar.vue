@@ -1,27 +1,31 @@
 <script lang="ts" setup>
+import { getAuth } from "firebase/auth";
 import NavBarButton from "./NavBarButton.vue";
 import NavBarHorizontalEntryC from "./NavBarHorizontalEntryC.vue";
 import NavBarVerticalEntryC from "./NavBarVerticalEntryC.vue";
 
+const props = defineProps(["overrideShowNavBar", "showNavBar", "atTop"]);
 const animations = defineModel("animations");
-const showNavBar = defineModel("showNavBar");
-const atTop = defineModel("atTop");
+const auth = getAuth()
+
+auth.onAuthStateChanged
+
 </script>
 
 <template>
   <Transition name="fade">
     <div
-      v-show="showNavBar"
+      v-show="props.showNavBar && !props.overrideShowNavBar"
       v-bind:class="{ 'text-gray-200 to-slate-50': $route.path == '/test' }"
       class="flex justify-center"
-      :class="{ 'bg-base-100': showNavBar && !atTop && $route.path != '/test' }"
+      :class="{
+        'bg-base-100': props.showNavBar && !atTop && $route.path != '/test',
+      }"
     >
       <div class="max-w-screen-2xl grow">
         <div class="navbar bg-transparent h-20 md:h-32 px-4 sm:px-10 md:px-20">
           <div class="navbar-start">
-            <div
-              class="flex flex-auto gap-6 items-center max-w-fit px-2"
-            >
+            <div class="flex flex-auto gap-6 items-center max-w-fit px-2">
               <div class="dropdown">
                 <div
                   tabindex="0"
@@ -49,7 +53,7 @@ const atTop = defineModel("atTop");
                 >
                   <NavBarVerticalEntryC name="home" route="/" />
                   <NavBarVerticalEntryC name="audio" route="/audio" />
-                  <NavBarVerticalEntryC name="visuals" route="/video" />
+                  <NavBarVerticalEntryC name="video" route="/video" />
                   <NavBarVerticalEntryC name="socials" route="/socials" />
                   <NavBarVerticalEntryC name="test" route="/test" />
                 </ul>
@@ -60,6 +64,9 @@ const atTop = defineModel("atTop");
                   <li>
                     <a>{{ $route.path }}</a>
                   </li>
+                  <li>
+                    <a> {{ auth.currentUser?.displayName }} </a>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -68,7 +75,7 @@ const atTop = defineModel("atTop");
             <ul class="inline-flex gap-4 px-1 font-semibold">
               <NavBarHorizontalEntryC name="home" route="/" />
               <NavBarHorizontalEntryC name="audio" route="/audio" />
-              <NavBarHorizontalEntryC name="visuals" route="/video" />
+              <NavBarHorizontalEntryC name="video" route="/video" />
               <NavBarHorizontalEntryC name="socials" route="/socials" />
               <NavBarHorizontalEntryC name="test" route="/test" />
             </ul>
@@ -85,7 +92,7 @@ const atTop = defineModel("atTop");
               <div class="modal-box max-w-sm">
                 <h3 class="font-bold text-lg">settings</h3>
                 <label class="cursor-pointer label">
-                  <span class="label-text px-2 text-xs">reduce motion</span>
+                  <span class="label-text px-2 text-xs">animations</span>
                   <input
                     type="checkbox"
                     class="toggle toggle-secondary"

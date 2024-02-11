@@ -5,10 +5,23 @@ import HomeHeroComponent from "../components/HomeHeroComponent.vue";
 import DiscographyAudioC from "../components/DiscographyAudioC.vue";
 import DiscographyVideoC from "../components/DiscographyVideoC.vue";
 import DiscographySocialC from "../components/DiscographySocialC.vue";
-import HomeSpacerC from '../components/HomeSpacerC.vue.vue'
+import HomeSpacerC from "../components/HomeSpacerC.vue.vue";
+import ModalBackDropC from "../components/ModalBackDropC.vue";
+import { ref, defineEmits } from "vue";
+import LoginModalC from "../components/LoginModalC.vue";
+import { Auth } from "firebase/auth";
 
-const animations = defineModel("animations");
-const lightTheme = defineModel("lightTheme");
+const animations = defineModel<boolean>("animations");
+const lightTheme = defineModel<boolean>("lightTheme");
+const modalOpen = defineModel<boolean>("modalOpen");
+
+const emit = defineEmits<{
+  hideNavBar: [value: boolean]
+}>()
+
+function hideNavBar(value: boolean) {
+  emit("hideNavBar", value);
+}
 </script>
 
 <template>
@@ -19,6 +32,8 @@ const lightTheme = defineModel("lightTheme");
       v-model:animations="animations"
       v-model:lightTheme="lightTheme"
       class="overflow-x-hidden"
+      v-model:modalOpen="modalOpen"
+      @hide-nav-bar="hideNavBar"
     ></HomeHeroComponent>
 
     <!-- content -->
@@ -71,15 +86,14 @@ const lightTheme = defineModel("lightTheme");
           <div
             class="flex flex-1 flex-wrap gap-6 justify-center max-w-screen-xl"
           >
-            <DiscographyAudioC class="flex-auto"/>
-            <DiscographyVideoC class="flex-auto"/>
-            <DiscographySocialC class="flex-auto"/>
+            <DiscographyAudioC class="flex-auto" />
+            <DiscographyVideoC class="flex-auto" />
+            <DiscographySocialC class="flex-auto" />
           </div>
         </div>
       </div>
 
       <HomeSpacerC />
-
     </div>
   </div>
 </template>
