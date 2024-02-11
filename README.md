@@ -16,7 +16,7 @@ run following commands to set it up:
 git clone https://github.com/0x22B59C/portfolio.git
 git switch staging
 yarn install
-npm run
+npm run dev  # starts up tailwind watcher and serves site
 ```
 to test / emulate the firebase services (please refer to the [firebase local emulator suite documentation](https://firebase.google.com/docs/emulator-suite)):
 ```bash
