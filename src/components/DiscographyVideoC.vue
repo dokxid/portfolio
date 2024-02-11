@@ -4,7 +4,7 @@ import SocialMediaButton from "./SocialMediaButton.vue";
 
 <template>
   <div class="text-center">
-    <div class="flex flex-col max-w-screen-xl bg-neutral p-5 rounded-3xl items-center">
+    <div class="flex flex-col bg-neutral p-5 rounded-3xl items-center">
       <article class="prose prose-slate my-6">
         <h1 class="lead my-0">
           visuals
