@@ -2,6 +2,7 @@
 
 import TroisComponent from '../components/TroisComponent.vue'
 
+
 </script>
 
 <template>
