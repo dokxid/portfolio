@@ -21,5 +21,5 @@ npm run dev  # starts up tailwind watcher and serves site
 to test / emulate the firebase services (please refer to the [firebase local emulator suite documentation](https://firebase.google.com/docs/emulator-suite)):
 ```bash
 # make sure u have firebase cli before doing that
-firebase emulators:start 
+firebase emulators:start --import ./emulator_test_data
 ```
