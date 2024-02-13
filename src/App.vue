@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { onMounted, onUnmounted, ref } from "vue";
 import NavBar from "./components/NavBar.vue";
-import { getAuth, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { User, getAuth, onAuthStateChanged, signInAnonymously, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import ModalBackDropC from "./components/ModalBackDropC.vue";
 import LoginModalC from "./components/LoginModalC.vue";
 
@@ -12,8 +12,13 @@ const atTop = ref(true);
 const lightTheme = ref(true);
 const modalOpen = ref<boolean>(false);
 const modalC = LoginModalC;
+const user = ref<User>()
 
 const auth = getAuth();
+
+signInAnonymously(auth).then((userCredential) => {
+  user.value = userCredential.user
+})
 
 // signInWithEmailAndPassword(
 //   auth,
@@ -27,6 +32,16 @@ const auth = getAuth();
 //     const errorCode = error.code;
 //     const errorMessage = error.message;
 //   });
+
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    // User is signed in.
+    // ...
+  } else {
+    // User is not signed in.
+    // ...
+  }
+});
 
 var startY = 0;
 
@@ -88,7 +103,7 @@ onUnmounted(() => window.removeEventListener("scroll", handleScroll));
         @backdrop-clicked="(modalOpen = false), hideNavBar(false)"
         class="fixed z-50"
       >
-        <component :is="modalC" v-model:auth="auth" class="z-40"></component>
+        <component :is="modalC" v-model:auth="auth" v-model:user="user" class="z-40" @leave-view="(modalOpen = false), hideNavBar(false)"></component>
       </ModalBackDropC>
     </div>
   </div>

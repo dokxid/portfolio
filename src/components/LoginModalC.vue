@@ -1,16 +1,15 @@
 <script setup lang="ts">
-import { Auth, connectAuthEmulator, getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { Ref, ref } from "vue";
+import { Auth, User, signInWithEmailAndPassword } from "firebase/auth";
+import { ref } from "vue";
 
 import imgUrl from "./../assets/logo_white.png";
-import { useFirebaseAuth } from "vuefire";
 
 const error = ref(null);
-const user = ref(null)
 const email = ref("");
 const password = ref("");
 
 const auth = defineModel<Auth>("auth")
+const user = defineModel<User>("user")
 
 
 const emit = defineEmits<{
@@ -18,15 +17,14 @@ const emit = defineEmits<{
 }>()
 
 function leaveView() {
-  console.debug("leaveview");
   emit("leaveView");
 }
 
 function handleSignUp() {
-  if (auth.value == undefined) {
+  if (auth.value !== undefined) {
     signInWithEmailAndPassword(auth.value, email.value, password.value)
     .then((userCredential) => {
-      const user = userCredential.user;
+      user.value = userCredential.user;
     })
     .catch((reason) => {
       console.error("failed signin", reason);
@@ -35,6 +33,7 @@ function handleSignUp() {
   } else {
     console.error("auth undefined")
   }
+  leaveView()
 }
 </script>
 
@@ -90,6 +89,7 @@ function handleSignUp() {
               class="group size-10 p-2 rounded-full bg-pink hover:bg-surface0 -rounded-full font-semibold text-base"
               id="signin"
               name="signin"
+              type="button"
               @click="handleSignUp"
             >
               <img
