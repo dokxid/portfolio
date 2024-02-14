@@ -73,6 +73,7 @@ onUnmounted(() => window.removeEventListener("scroll", handleScroll));
           v-model:animations="animations"
           v-model:lightTheme="lightTheme"
           v-model:modalOpen="modalOpen"
+          v-model:auth="auth"
           @hide-nav-bar="hideNavBar"
         ></router-view>
       </div>

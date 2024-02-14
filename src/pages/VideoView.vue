@@ -5,25 +5,36 @@ import ModalBackDropC from "../components/ModalBackDropC.vue";
 import { useCollection, useFirestore } from "vuefire";
 import { collection, query, where } from "firebase/firestore";
 import YouTubeWrapperC from "../components/YouTubeWrapperC.vue";
+import { Auth } from "firebase/auth";
 
 const modalOpen = defineModel<boolean>("modalOpen");
+const auth = defineModel<Auth>("auth");
 
 const db = useFirestore();
 
-const contentRef = collection(db, "video");
+let contentRef = collection(db, "video");
+let qr = null;
+
+if (auth.value?.currentUser?.emailVerified) {
+  qr = ["public", "private"];
+} else {
+  qr = ["public"];
+}
 
 const renders_streamable_q = useCollection(
   query(
     contentRef,
     where("topic", "==", "renders"),
-    where("platform", "==", "streamable")
+    where("platform", "==", "streamable"),
+    where("public_level", "in", qr)
   )
 );
 const renders_youtube_q = useCollection(
   query(
     contentRef,
     where("topic", "==", "renders"),
-    where("platform", "==", "youtube")
+    where("platform", "==", "youtube"),
+    where("public_level", "in", qr)
   )
 );
 
@@ -31,14 +42,16 @@ const mv_streamable_q = useCollection(
   query(
     contentRef,
     where("topic", "==", "mv"),
-    where("platform", "==", "streamable")
+    where("platform", "==", "streamable"),
+    where("public_level", "in", qr)
   )
 );
 const mv_youtube_q = useCollection(
   query(
     contentRef,
     where("topic", "==", "mv"),
-    where("platform", "==", "youtube")
+    where("platform", "==", "youtube"),
+    where("public_level", "in", qr)
   )
 );
 
@@ -46,14 +59,16 @@ const vj_streamable_q = useCollection(
   query(
     contentRef,
     where("topic", "==", "vj"),
-    where("platform", "==", "streamable")
+    where("platform", "==", "streamable"),
+    where("public_level", "in", qr)
   )
 );
 const vj_youtube_q = useCollection(
   query(
     contentRef,
     where("topic", "==", "vj"),
-    where("platform", "==", "youtube")
+    where("platform", "==", "youtube"),
+    where("public_level", "in", qr)
   )
 );
 
@@ -61,14 +76,16 @@ const hand_animation_streamable_q = useCollection(
   query(
     contentRef,
     where("topic", "==", "hand_animation"),
-    where("platform", "==", "streamable")
+    where("platform", "==", "streamable"),
+    where("public_level", "in", qr)
   )
 );
 const hand_animation_youtube_q = useCollection(
   query(
     contentRef,
     where("topic", "==", "hand_animation"),
-    where("platform", "==", "youtube")
+    where("platform", "==", "youtube"),
+    where("public_level", "in", qr)
   )
 );
 
@@ -76,14 +93,16 @@ const misc_streamable_q = useCollection(
   query(
     contentRef,
     where("topic", "==", "misc"),
-    where("platform", "==", "streamable")
+    where("platform", "==", "streamable"),
+    where("public_level", "in", qr)
   )
 );
 const misc_youtube_q = useCollection(
   query(
     contentRef,
     where("topic", "==", "misc"),
-    where("platform", "==", "youtube")
+    where("platform", "==", "youtube"),
+    where("public_level", "in", qr)
   )
 );
 
