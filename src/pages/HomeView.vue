@@ -6,10 +6,6 @@ import DiscographyAudioC from "../components/DiscographyAudioC.vue";
 import DiscographyVideoC from "../components/DiscographyVideoC.vue";
 import DiscographySocialC from "../components/DiscographySocialC.vue";
 import HomeSpacerC from "../components/HomeSpacerC.vue.vue";
-import ModalBackDropC from "../components/ModalBackDropC.vue";
-import { ref, defineEmits } from "vue";
-import LoginModalC from "../components/LoginModalC.vue";
-import { Auth } from "firebase/auth";
 
 const animations = defineModel<boolean>("animations");
 const lightTheme = defineModel<boolean>("lightTheme");

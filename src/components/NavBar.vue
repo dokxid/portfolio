@@ -1,14 +1,27 @@
 <script lang="ts" setup>
-import { getAuth } from "firebase/auth";
+import { Auth } from "firebase/auth";
 import NavBarButton from "./NavBarButton.vue";
 import NavBarHorizontalEntryC from "./NavBarHorizontalEntryC.vue";
 import NavBarVerticalEntryC from "./NavBarVerticalEntryC.vue";
+import { ref } from "vue";
 
 const props = defineProps(["overrideShowNavBar", "showNavBar", "atTop"]);
 const animations = defineModel("animations");
-const auth = getAuth()
+const auth = defineModel<Auth>("auth");
+const loginState = ref(false)
 
-auth.onAuthStateChanged
+const emit = defineEmits<{
+  showLogin: []
+  toggleTheme: []
+}>()
+
+function showLogin() {
+  emit("showLogin");
+}
+
+auth.value?.onAuthStateChanged(() => {
+  loginState.value = auth.value?.currentUser !== null
+})
 
 </script>
 
@@ -65,7 +78,8 @@ auth.onAuthStateChanged
                     <a>{{ $route.path }}</a>
                   </li>
                   <li>
-                    <a> {{ auth.currentUser?.displayName }} </a>
+                    <!-- TODO, update dom on auth.onAuthChanged event -->
+                    <a @click="showLogin">{{ loginState ? auth?.currentUser?.displayName : 'sign in' }}</a>
                   </li>
                 </ul>
               </div>
