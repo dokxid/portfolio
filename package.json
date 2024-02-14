@@ -9,7 +9,7 @@
     "cables-rocks": "cables --export jGPZm3 -d ./public/cables/rocks -c -i -b",
     "dev": "vite & npm run watch",
     "dev_host": "vite --host",
-    "build": "npx vue-tsc && vite build",
+    "build": "yarn exec vue-tsc && vite build",
     "build_watch": "vite build --watch",
     "preview": "vite preview"
   },
