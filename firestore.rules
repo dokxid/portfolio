@@ -4,8 +4,9 @@ service cloud.firestore {
   match /databases/{database}/documents {
     match /video/{document=**} {
       allow read: 
-        if request.auth.token.role == "privileged" 
-          || request.auth.token.role == "admin"
+        if resource.data.public_level == 'public' 
+        || (request.auth.token.role == "privileged" || request.auth.token.role == 'admin') && resource.data_public == 'privileged'
+        || request.auth.token.role == "admin" || resource.data_public == 'private'
       allow write: 
         if false
     }
