@@ -13,7 +13,7 @@ const lightTheme = ref(true);
 const modalOpen = ref<boolean>(false);
 const modalC = LoginModalC;
 
-const auth = getAuth();
+const auth = ref(getAuth());
 
 var startY = 0;
 
