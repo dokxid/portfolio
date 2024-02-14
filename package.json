@@ -10,7 +10,7 @@
     "dev_host": "vite --host",
     "build": "yarn exec vue-tsc && vite build",
     "build_deploy": "yarn run tailwind && yarn build",
-    "preview": "vite preview"
+    "preview": "yarn run build_deploy && vite preview"
   },
   "dependencies": {
     "animated-tailwindcss": "^4.0.0",

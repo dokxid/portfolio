@@ -33,11 +33,10 @@ const app =
     createApp(App)
     .use(router)
     .use(VueFire, {
-        firebaseApp,
-        modules: [
-            VueFireAuth(),
-        ],
-    })
+            firebaseApp,
+            modules: [VueFireAuth()],
+        },
+    )
 
 app.mount('#app')
 
