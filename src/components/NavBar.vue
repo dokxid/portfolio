@@ -8,21 +8,20 @@ import { ref } from "vue";
 const props = defineProps(["overrideShowNavBar", "showNavBar", "atTop"]);
 const animations = defineModel("animations");
 const auth = defineModel<Auth>("auth");
-const loginState = ref(false)
+const loginState = ref(false);
 
 const emit = defineEmits<{
-  showLogin: []
-  toggleTheme: []
-}>()
+  showLogin: [];
+  toggleTheme: [];
+}>();
 
 function showLogin() {
   emit("showLogin");
 }
 
 auth.value?.onAuthStateChanged(() => {
-  loginState.value = auth.value?.currentUser !== null
-})
-
+  loginState.value = auth.value?.currentUser !== null;
+});
 </script>
 
 <template>
@@ -68,7 +67,7 @@ auth.value?.onAuthStateChanged(() => {
                   <NavBarVerticalEntryC name="audio" route="/audio" />
                   <NavBarVerticalEntryC name="video" route="/video" />
                   <NavBarVerticalEntryC name="socials" route="/socials" />
-                  <NavBarVerticalEntryC name="test" route="/test" />
+                  <!-- <NavBarVerticalEntryC name="test" route="/test" /> -->
                 </ul>
               </div>
               <div class="text-sm breadcrumbs font-bold">
@@ -76,10 +75,7 @@ auth.value?.onAuthStateChanged(() => {
                   <li><router-link to="/">bed</router-link></li>
                   <li>
                     <a>{{ $route.path }}</a>
-                  </li>
-                  <li>
                     <!-- TODO, update dom on auth.onAuthChanged event -->
-                    <a @click="showLogin">{{ loginState ? auth?.currentUser?.displayName : 'sign in' }}</a>
                   </li>
                 </ul>
               </div>
@@ -91,13 +87,22 @@ auth.value?.onAuthStateChanged(() => {
               <NavBarHorizontalEntryC name="audio" route="/audio" />
               <NavBarHorizontalEntryC name="video" route="/video" />
               <NavBarHorizontalEntryC name="socials" route="/socials" />
-              <NavBarHorizontalEntryC name="test" route="/test" />
+              <!-- <NavBarHorizontalEntryC name="test" route="/test" /> -->
             </ul>
           </div>
           <div class="navbar-end">
             <!-- <router-link to="/socials">
             <button class="btn btn-ghost">contact me</button>
           </router-link> -->
+            <a
+              @click="showLogin"
+              class="mx-4 text-xs font-semibold underline cursor-pointer hover:text-pink"
+              >{{
+                loginState
+                  ? auth?.currentUser?.displayName
+                  : "do u have a login?"
+              }}</a
+            >
             <nav-bar-button
               logo="icons/settings.svg"
               onclick="settings_modal.showModal()"

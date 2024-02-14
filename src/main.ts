@@ -10,7 +10,7 @@ import App from './App.vue'
 import AudioView from './pages/AudioView.vue'
 import VideoView from './pages/VideoView.vue'
 import HomeView from './pages/HomeView.vue'
-import TestView from './pages/TestView.vue'
+// import TestView from './pages/TestView.vue'
 import SocialView from './pages/SocialView.vue'
 
 import './output.css'
@@ -25,7 +25,7 @@ const router = createRouter({
         { path: '/video', component: VideoView },
         { path: '/audio', component: AudioView },
         { path: '/socials', component: SocialView },
-        { path: '/test', component: TestView },
+        // { path: '/test', component: TestView },
     ]
 });
 
