@@ -160,7 +160,7 @@ function hideNavBar(value: boolean) {
         <article class="prose prose-slate my-6">
           <h1 class="lead my-0">showcase of a few projects</h1>
 
-          <!-- <h2>embeddable patches</h2>
+          <h2>embeddable patches</h2>
           <p class="lead">these are embeds from my cables.gl patches</p>
           <p>
             <em
@@ -202,7 +202,7 @@ function hideNavBar(value: boolean) {
               style="width: 640px; height: 480px; border: 0px"
               src="https://cables.gl/view/65bda8ba71656d76fa1f13ab"
             ></iframe>
-          </div> -->
+          </div>
 
           <h2>renders</h2>
           <p class="lead">
