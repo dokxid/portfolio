@@ -1,19 +1,23 @@
 <script setup lang="ts">
-import { Auth, signInAnonymously, signInWithEmailAndPassword, signOut } from "firebase/auth";
-import { onMounted, ref } from "vue";
+import {
+  Auth,
+  signInWithEmailAndPassword,
+  signOut,
+} from "firebase/auth";
+import { ref } from "vue";
 
 import imgUrl from "./../assets/logo_white.png";
 
 const error = ref(null);
 const email = ref("");
 const password = ref("");
-const loginState = ref(false)
+const loginState = ref(false);
 
-const auth = defineModel<Auth>("auth")
+const auth = defineModel<Auth>("auth");
 
 const emit = defineEmits<{
-  leaveView: [],
-}>()
+  leaveView: [];
+}>();
 
 function leaveView() {
   emit("leaveView");
@@ -22,40 +26,36 @@ function leaveView() {
 function handleSignUp() {
   if (auth.value !== undefined) {
     signInWithEmailAndPassword(auth.value, email.value, password.value)
-    .then((userCredential) => {
-      auth.value?.updateCurrentUser(userCredential.user)
-    })
-    .catch((reason) => {
-      console.error("failed signin", reason);
-      error.value = reason;
-    });
+      .then((userCredential) => {
+        auth.value?.updateCurrentUser(userCredential.user);
+      })
+      .catch((reason) => {
+        console.error("failed signin", reason);
+        error.value = reason;
+      });
   } else {
-    console.error("auth undefined")
+    console.error("auth undefined");
   }
-  leaveView()
+  leaveView();
 }
 
 function handleSignOut() {
-  signOut(auth.value)
-  console.debug('signing out')
-  leaveView()
+  signOut(auth.value!);
+  console.debug("signing out");
+  leaveView();
 }
 
 auth.value?.onAuthStateChanged(() => {
-  loginState.value = auth.value?.currentUser !== null
-})
-
+  loginState.value = auth.value?.currentUser !== null;
+});
 </script>
 
 <template>
   <div class="flex rounded-2xl max-w-screen-sm overflow-hidden">
     <div class="bg-base-100 flex flex-row">
       <article class="prose prose-sm w-full max-w-md p-8">
-        
         <!-- case: anon -->
-        <div 
-          v-show="!loginState"
-        >
+        <div v-show="!loginState">
           <h1>login</h1>
           <p>
             if i sent you a login, please enter it in the fields below:<br />
@@ -137,8 +137,6 @@ auth.value?.onAuthStateChanged(() => {
             />
           </div>
         </button>
-
-
       </article>
       <div class="flex bg-pink justify-center items-center">
         <img :src="imgUrl" width="70%" />

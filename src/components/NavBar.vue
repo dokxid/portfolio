@@ -12,6 +12,7 @@ const loginState = ref(false)
 
 const emit = defineEmits<{
   showLogin: []
+  toggleTheme: []
 }>()
 
 function showLogin() {
