@@ -4,11 +4,12 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "watch": "npx tailwindcss -i ./src/input.css -o ./src/output.css --watch",
-    "dev": "vite & npm run watch",
+    "tailwind:watch": "npx tailwindcss -i ./src/input.css -o ./src/output.css --watch",
+    "tailwind": "npx tailwindcss -i ./src/input.css -o ./src/output.css",
+    "dev": "vite & yarn run tailwind:watch",
     "dev_host": "vite --host",
     "build": "yarn exec vue-tsc && vite build",
-    "build_deploy": "vite build",
+    "build_deploy": "yarn run tailwind && yarn build",
     "preview": "vite preview"
   },
   "dependencies": {
