@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@v4
       - run: npm install -g yarn
       - run: yarn install
-      - run: yarn build
+      - run: yarn build_deploy
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
