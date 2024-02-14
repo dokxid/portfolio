@@ -5,12 +5,10 @@
   "type": "module",
   "scripts": {
     "watch": "npx tailwindcss -i ./src/input.css -o ./src/output.css --watch",
-    "cables-connected-particles": "cables --export dPfHb3 -d ./public/cables/connected-particles -c -i -b",
-    "cables-rocks": "cables --export jGPZm3 -d ./public/cables/rocks -c -i -b",
     "dev": "vite & npm run watch",
     "dev_host": "vite --host",
     "build": "yarn exec vue-tsc && vite build",
-    "build_watch": "vite build --watch",
+    "build_deploy": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
