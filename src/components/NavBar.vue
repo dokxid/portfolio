@@ -3,10 +3,12 @@ import { Auth } from "firebase/auth";
 import NavBarButton from "./NavBarButton.vue";
 import NavBarHorizontalEntryC from "./NavBarHorizontalEntryC.vue";
 import NavBarVerticalEntryC from "./NavBarVerticalEntryC.vue";
+import { ref } from "vue";
 
 const props = defineProps(["overrideShowNavBar", "showNavBar", "atTop"]);
 const animations = defineModel("animations");
 const auth = defineModel<Auth>("auth");
+const loginState = ref(false)
 
 const emit = defineEmits<{
   showLogin: []
@@ -15,6 +17,10 @@ const emit = defineEmits<{
 function showLogin() {
   emit("showLogin");
 }
+
+auth.value?.onAuthStateChanged(() => {
+  loginState.value = auth.value?.currentUser !== null
+})
 
 </script>
 
@@ -72,7 +78,7 @@ function showLogin() {
                   </li>
                   <li>
                     <!-- TODO, update dom on auth.onAuthChanged event -->
-                    <a @click="showLogin">{{ auth?.currentUser == null ? 'sign in' : auth?.currentUser?.displayName }}</a>
+                    <a @click="showLogin">{{ loginState ? auth?.currentUser?.displayName : 'sign in' }}</a>
                   </li>
                 </ul>
               </div>
