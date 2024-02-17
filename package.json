@@ -6,7 +6,8 @@
   "scripts": {
     "tailwind:watch": "npx tailwindcss -i ./src/input.css -o ./src/output.css --watch",
     "tailwind": "npx tailwindcss -i ./src/input.css -o ./src/output.css",
-    "dev": "vite & yarn run tailwind:watch",
+    "dev": "start vite & start yarn run tailwind:watch",
+    "dev_windows": "start vite & start yarn run tailwind:watch",
     "dev_host": "vite --host",
     "build": "yarn exec vue-tsc && vite build",
     "build_deploy": "yarn run tailwind && yarn build",

@@ -72,23 +72,6 @@ const vj_youtube_q = useCollection(
   )
 );
 
-const hand_animation_streamable_q = useCollection(
-  query(
-    contentRef,
-    where("topic", "==", "hand_animation"),
-    where("platform", "==", "streamable"),
-    where("public_level", "in", qr)
-  )
-);
-const hand_animation_youtube_q = useCollection(
-  query(
-    contentRef,
-    where("topic", "==", "hand_animation"),
-    where("platform", "==", "youtube"),
-    where("public_level", "in", qr)
-  )
-);
-
 const misc_streamable_q = useCollection(
   query(
     contentRef,
@@ -120,12 +103,14 @@ function hideNavBar(value: boolean) {
   <div class="flex flex-col justify-center gap-4 w-screen items-center">
     <!-- hero content -->
     <!-- <HomeSpacerC /> -->
-    <div class="container flex gap-10 h-screen items-center justify-center">
-      <div class="flex flex-row gap-10">
-        <div class="w-screen-xl bg-neutral p-5 rounded-3xl justify-center">
+    <div
+      class="container flex gap-10 h-fit md:h-screen items-center justify-center"
+    >
+      <div class="flex flex-col md:flex-row gap-10 pt-20 pb-10">
+        <div class="w-screen-xl bg-neutral p-5 md:rounded-3xl justify-center">
           <DiscographyVideoC class="" />
         </div>
-        <div class="bg-neutral p-5 rounded-3xl justify-center">
+        <div class="bg-neutral p-5 md:rounded-3xl justify-center">
           <div class="flex justify-center">
             <article class="prose prose-slate my-6">
               <h1>visuals.preface.h1</h1>
@@ -155,7 +140,7 @@ function hideNavBar(value: boolean) {
       </div>
     </div>
 
-    <div class="w-screen bg-neutral p-5 rounded-3xl justify-center">
+    <div class="w-screen bg-neutral p-5 md:rounded-3xl justify-center">
       <div class="flex justify-center">
         <article class="prose prose-slate my-6">
           <h1 class="lead my-0">showcase of a few projects</h1>
@@ -168,8 +153,8 @@ function hideNavBar(value: boolean) {
               [Attribution-NonCommercial-ShareAlike 4.0])</em
             >
           </p>
-          <div class="flex flex-col gap-4">
-            <div class="block w-full bg-pink rounded-3xl">
+          <div class="flex flex-col gap-10">
+            <!-- <div class="block w-full bg-pink rounded-3xl">
               <button
                 class="block w-full bg-pink p-4 rounded-3xl font-bold"
                 @click="(modalOpen = true), hideNavBar(true)"
@@ -177,31 +162,43 @@ function hideNavBar(value: boolean) {
               >
                 click me to show
               </button>
-            </div>
-            <div>
-              <div class="p-4">
-                <h3>may i go to sleep again</h3>
-                <a href="https://cables.gl/p/xMwLG3">link to patch</a>
-              </div>
-              <div class="h-[480px] w-full">
+            </div> -->
+            <div class="bg-pink">
+              <div>
                 <iframe
-                  style="width: 100%; height: 480px; border: 0px"
-                  src="https://cables.gl/view/65c4aa07436c4b10ec0f34d1"
+                style="width: 100%; height: 320px; border: 0px"
+                src="https://cables.gl/view/65c4aa07436c4b10ec0f34d1"
                 ></iframe>
               </div>
+              <div class="pt-0 p-4">
+                <h4>may i go to sleep again</h4>
+                <a href="https://cables.gl/p/xMwLG3">link to patch</a>
+              </div>
             </div>
-            <h3>rocks v2,,,</h3>
-            <a href="https://cables.gl/p/jGPZm3">link to patch</a>
-            <iframe
-              style="width: 100%; height: 480px; border: 0px"
-              src="https://cables.gl/view/65c034f2cbaf213b5445a85b"
-            ></iframe>
-            <h3>connected particles</h3>
-            <a href="https://cables.gl/p/dPfHb3">link to patch</a>
-            <iframe
-              style="width: 640px; height: 480px; border: 0px"
-              src="https://cables.gl/view/65bda8ba71656d76fa1f13ab"
-            ></iframe>
+            <div class="bg-pink">
+              <div>
+                <iframe
+                style="width: 100%; height: 320px; border: 0px"
+                src="https://cables.gl/view/65c034f2cbaf213b5445a85b"
+                ></iframe>
+              </div>
+              <div class="pt-0 p-4">
+                <h4>rocks v2,,,</h4>
+                <a href="https://cables.gl/p/jGPZm3">link to patch</a>
+              </div>
+            </div>
+            <div class="bg-pink">
+              <div>
+                <iframe
+                style="width: 100%; height: 320px; border: 0px"
+                src="https://cables.gl/view/65bda8ba71656d76fa1f13ab"
+                ></iframe>
+              </div>
+              <div class="pt-0 p-4">
+                <h4>may i go to sleep again</h4>
+                <a href="https://cables.gl/p/dPfHb3">link to patch</a>
+              </div>
+            </div>
           </div>
 
           <h2>renders</h2>
@@ -211,10 +208,10 @@ function hideNavBar(value: boolean) {
           </p>
           <div class="flex flex-col gap-10">
             <div v-for="item in renders_streamable_q">
-              <StreamableWrapperC :link="item.service_id" />
+              <StreamableWrapperC :link="item.service_id" :title="item.title" />
             </div>
             <div v-for="item in renders_youtube_q">
-              <YouTubeWrapperC :link="item.service_id" />
+              <YouTubeWrapperC :link="item.service_id" :title="item.title" />
             </div>
           </div>
 
@@ -225,10 +222,10 @@ function hideNavBar(value: boolean) {
           </p>
           <div class="flex flex-col gap-10">
             <div v-for="item in mv_streamable_q">
-              <StreamableWrapperC :link="item.service_id" />
+              <StreamableWrapperC :link="item.service_id" :title="item.title" />
             </div>
             <div v-for="item in mv_youtube_q">
-              <YouTubeWrapperC :link="item.service_id" />
+              <YouTubeWrapperC :link="item.service_id" :title="item.title" />
             </div>
           </div>
 
@@ -239,21 +236,10 @@ function hideNavBar(value: boolean) {
           </p>
           <div class="flex flex-col gap-10">
             <div v-for="item in vj_streamable_q">
-              <StreamableWrapperC :link="item.service_id" />
+              <StreamableWrapperC :link="item.service_id" :title="item.title" />
             </div>
             <div v-for="item in vj_youtube_q">
-              <YouTubeWrapperC :link="item.service_id" />
-            </div>
-          </div>
-
-          <h2>handdrawn animations</h2>
-          <p class="lead">drawn in procreate / toonsquid / kita</p>
-          <div class="flex flex-col gap-10">
-            <div v-for="item in hand_animation_streamable_q">
-              <StreamableWrapperC :link="item.service_id" />
-            </div>
-            <div v-for="item in hand_animation_youtube_q">
-              <YouTubeWrapperC :link="item.service_id" />
+              <YouTubeWrapperC :link="item.service_id" :title="item.title" />
             </div>
           </div>
 
@@ -261,10 +247,10 @@ function hideNavBar(value: boolean) {
           <p class="lead">drawn in procreate / toonsquid / kita</p>
           <div class="flex flex-col gap-10">
             <div v-for="item in misc_streamable_q">
-              <StreamableWrapperC :link="item.service_id" />
+              <StreamableWrapperC :link="item.service_id" :title="item.title" />
             </div>
             <div v-for="item in misc_youtube_q">
-              <YouTubeWrapperC :link="item.service_id" />
+              <YouTubeWrapperC :link="item.service_id" :title="item.title" />
             </div>
           </div>
         </article>
