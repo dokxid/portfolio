@@ -153,7 +153,7 @@ function hideNavBar(value: boolean) {
               [Attribution-NonCommercial-ShareAlike 4.0])</em
             >
           </p>
-          <div class="flex flex-col gap-4">
+          <div class="flex flex-col gap-10">
             <!-- <div class="block w-full bg-pink rounded-3xl">
               <button
                 class="block w-full bg-pink p-4 rounded-3xl font-bold"
