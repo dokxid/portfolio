@@ -13,6 +13,7 @@ const video_id =
 </script>
 
 <template>
+  <div class="bg-pink">
   <div
     style="position: relative; width: 100%; height: 0px; padding-bottom: 56.25%"
   >
@@ -34,5 +35,10 @@ const video_id =
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       allowfullscreen
     ></iframe>
+  </div>
+    <div class="pt-0 p-4">
+      <h4>{{ props.title }}</h4>
+      <a href="https://cables.gl/p/xMwLG3">link to patch</a>
+    </div>
   </div>
 </template>
